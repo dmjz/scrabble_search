@@ -1,0 +1,1 @@
+web: gunicorn scrabble_search.wsgi
