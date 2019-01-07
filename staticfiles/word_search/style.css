@@ -1,0 +1,14 @@
+body, html, .container-fluid, .row-results, .col-results {
+  height: 100%;
+}
+
+.list-scroll {
+  max-height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
