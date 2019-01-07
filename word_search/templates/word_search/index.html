@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{% static 'word_search/style.css' %}" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Scrabble Word Finder</title>
+</head>
+
+<body>
+  <div class="top-row text-nowrap mb-3">
+    <h1 class="display-4 text-center p-3">Scrabble word finder</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-1 col-md-3"></div>
+      <div class="col-11 col-md-6">
+        <form action="{% url 'word_search:search' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="search_text">Enter text to search:</label>
+            <input type="text" class="form-control" id="search_text" name="search_text">
+          </div>
+          
+          <div class="form-group">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="search_type" id="type_basic" value="basic" checked="checked">
+            <label class="form-check-label" for="type_basic">Search for this exact word</label>
+            </div>
+            
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="search_type" id="type_start" value="start">
+            <label class="form-check-label" for="type_start">Words that start with this string</label>
+            </div>
+            
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="search_type" id="type_end" value="end">
+            <label class="form-check-label" for="type_end">Words that end with this string</label>
+            </div>
+            
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="search_type" id="type_contain" value="contain">
+            <label class="form-check-label" for="type_contain">Words that contain this string</label>
+            </div>
+            
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="search_type" id="type_make" value="make">
+            <label class="form-check-label" for="type_make">Words you can make from these letters</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <div class="col-1 col-md-3"></div>
+    </div>
+  </div>
+</body>
+</html>

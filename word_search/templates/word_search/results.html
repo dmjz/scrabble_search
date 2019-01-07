@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{% static 'word_search/style.css' %}" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Scrabble Word Finder - Results</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row row-results">
+      <div class="col-1 col-md-3"></div>
+      <div class="col-11 col-md-6 col-results p-3">
+        <h3>Input: <small>{{ input }}</small></h3>
+        
+        {% if words %}
+          <h3>Results:</h3>
+          
+          <ul class="list-group list-scroll">
+            {% for word in words %}
+              <li class="list-group-item">{{ word }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <h3>No words found.</h3>
+        {% endif %}
+        
+        <form action="{% url 'word_search:index' %}" method="get" class="mt-3">
+          <button type="submit" class="btn btn-primary">New search</button>
+        </form>
+      </div>
+      <div class="col-1 col-md-3"></div>
+    </div>
+  </div>
+</body>
