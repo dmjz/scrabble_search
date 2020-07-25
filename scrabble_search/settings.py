@@ -25,10 +25,10 @@ DEBUG = False
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
     SECRET_KEY = 'pleasedonottellanyonethissuppersecretkey'
+    ALLOWED_HOSTS = ['localhost']
 else:
     SECRET_KEY = os.environ['SECRET_KEY']
-
-ALLOWED_HOSTS = ['.herokuapp.com']
+    ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
